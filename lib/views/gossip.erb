@@ -44,10 +44,15 @@
 							  <div class="post-comments">
 							      <p>
 											<form action='/gossips/<%= gossip_id %>/comment/new/' method='POST'>
-												Ton nom : <input type="text" name="comment_author"> <br><br>
-												Ton (gentil) commentaire : <br><input type="text" name="comment_content"> <br>
-												<input type="submit" value="Envoyer">
-											</form>
+											  <div class="form-group">
+											    <label for="pseudo_ref">Ton pseudo</label>
+											    <input name="comment_author" type="text" class="form-control" id="pseudo_ref" placeholder="Rentre ton pseudo">
+											  </div>
+											  <div class="form-group">
+											    <label for="comment_ref">Password</label>
+											    <input name="comment_content" type="text" class="form-control" id="comment_ref" placeholder="Ton commentaire">
+											  </div>
+											  <button type="submit" class="btn btn-primary">Envoyer</button>
 							      </p>
 							  </div>
 							</li>
