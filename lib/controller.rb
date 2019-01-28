@@ -48,4 +48,10 @@ class ApplicationController < Sinatra::Base
   	erb :gossip, locals: {gossip_id: gossip_id} 
   end
 
+  # Redirection de en cas de besoin d'affichage
+  get '/gossips/:id/comment/' do
+		id =  params['id'].to_i
+		redirect '/gossips/1/show/'
+	end
+
 end
