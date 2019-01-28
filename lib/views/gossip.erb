@@ -13,6 +13,22 @@
 			<br>
 			<a href="/gossips/<%= gossip_id %>/edit">Editer ce potin</a>
 			<br><br>
+			<section>
+				<h2>Commentaires</h2>
+				<% Comment.get_gossip_comments(gossip_id).each do |comment| %>
+				<p>Commentaire de : <b><%= comment.author %> </b> </p>
+				<p> <blockquote><%= comment.content %> </blockquote></p>
+				<% end %>
+				<h2>Poster un commentaire</h2>
+
+				<form action='/gossips/<%= gossip_id %>/comment/new/' method='POST'>
+					Ton nom : <input type="text" name="comment_author"> <br><br>
+					Ton (gentil) commentaire : <br><input type="text" name="comment_content"> <br>
+					<input type="submit" value="Envoyer">
+				</form>
+
+			</section>
+	<br><br>
 			<a href="/">Revenir à la liste des potins</a>
 	</body>
 </html>

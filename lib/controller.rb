@@ -11,8 +11,6 @@ class ApplicationController < Sinatra::Base
 	end
 
 	post '/gossips/new/' do
-		puts "Hello, je suis dans le serveur"
-		puts "Ceci est mes params :#{params}"
 		puts "Author : #{params[:gossip_author]}"
 		author = params[:gossip_author]
 		puts "Content : #{params[:gossip_content]}"
@@ -42,5 +40,12 @@ class ApplicationController < Sinatra::Base
     erb :gossip, locals: {gossip_id: id} 
   end
 
+  post '/gossips/:gossip_id/comment/new/' do 
+  	gossip_id = params['gossip_id'].to_i
+  	comment_author = params[:comment_author]
+  	comment_content = params[:comment_content]
+  	Comment.new(gossip_id,comment_author,comment_content).save
+  	erb :gossip, locals: {gossip_id: gossip_id} 
+  end
 
 end
