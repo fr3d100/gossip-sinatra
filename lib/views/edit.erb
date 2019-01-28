@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The Gossip Project</title>
+</head>
+	<body>
+		<h1>Page d'édition du potin</h1>
+		<h2>Tu vas éditer le potin n° <%= gossip_id %> : </h2>
+			<p>
+				Son auteur : <%= Gossip.find(gossip_id).author %> <br>
+				Le contenu du potin : <%= Gossip.find(gossip_id).content %> 
+			</p>
+	   	<form action='/gossips/<%=gossip_id%>/update/' method='POST'>
+	      Author : <input type='text' name='gossip_author' value="<%= Gossip.find(gossip_id).author %>"/> <br/>
+	      Content : <input type='text' name='gossip_content' value="<%= Gossip.find(gossip_id).content %>" /><br/>
+	      <input type='submit'/>
+	    </form>
+			<br><br>
+			<a href="/">Revenir à la liste des potins</a>
+	</body>
+</html>
